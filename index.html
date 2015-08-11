@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="sounder">
+<head>
+  <title>SoundCloud</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="mainCtrl">
+
+  <form ng-submit="getUser()">
+    <input type="text" ng-model="searchText">
+    <button>Search</button>
+  </form>
+
+  <div class="row">
+    <div ng-repeat="song in userData">
+      <div class="col-md-1">
+        <img src="http://i.ytimg.com/vi/L5z2-Mx9TNE/hqdefault.jpg" ng-click="play(song.permalink_url)" ng-if="!song.artwork_url">
+        <img ng-src="{{song.artwork_url}}" ng-click="play(song.permalink_url)" ng-if="song.artwork_url">
+      </div>
+    </div>
+  </div>
+  <div ng-bind-html="player_html"></div>
+
+  <form ng-submit="getBirds()">
+    <input type="text" ng-model="status">
+    <button>Search</button>
+  </form>
+
+  <div class="row">
+    <div ng-repeat="bird in birds">
+      <div class="col-md-3">
+        Order: {{bird.order}}
+        Family Name: {{bird.familyName}}
+        Common Name: {{bird.commonName}}
+        Scientific Name: {{bird.scientificName}}
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="app.js"></script>
+  <script src="soundService.js"></script>
+  <script src="mainCtrl.js"></script>
+</body>
+</html>
