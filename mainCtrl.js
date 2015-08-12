@@ -17,6 +17,8 @@ app.controller('mainCtrl', function($scope, soundService, $sce){
     });
   };
 
+// Philipp, ignore this part. It's not part of the project
+// I'm just using it to demonstrate some SDK stuff.
   $scope.getBirds = function(){
     soundService.mySDK($scope.status, function(birds, err){
       if(err){
