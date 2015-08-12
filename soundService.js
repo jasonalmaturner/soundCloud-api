@@ -9,6 +9,8 @@ app.service('soundService', function($http){
     })
   };
 
+  // Philipp, ignore this part. It's not part of the project
+  // I'm just using it to demonstrate some SDK stuff.
   this.mySDK = function(status, cb){
     $http({
       method: 'GET',
